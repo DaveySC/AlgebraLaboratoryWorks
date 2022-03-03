@@ -1,3 +1,5 @@
+package lab1;
+
 import java.util.Arrays;
 
 public class BinaryRelation {
@@ -157,9 +159,9 @@ public class BinaryRelation {
 
 
     public void doEquivalenceClosure() {
-        doSymmetricalClosure();
-        doTransitiveClosure();
         doReflexiveClosure();
+        doTransitiveClosure();
+        doSymmetricalClosure();
     }
 
 
