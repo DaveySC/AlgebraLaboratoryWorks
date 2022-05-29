@@ -243,6 +243,11 @@ public class Lab2 {
         }
 
         for (HashSet<String> elem : mainList) {
+            System.out.println(elem);
+        }
+        System.out.println("-------------------------------------");
+
+        for (HashSet<String> elem : mainList) {
             boolean initStatus = true;
             HashSet<String> bigHashSet = new HashSet<>();
             for (String string : elem) {
@@ -268,6 +273,38 @@ public class Lab2 {
         }
     }
 
+
+        //clone need dodelay 0)0)0)
+    private void diagramPrint( HashSet<HashSet<String>> mainList) {
+
+        HashSet<HashSet<String>> superHelper = new HashSet<>(mainList);
+        for (HashSet<String> elem : mainList) {
+            HashSet<HashSet<String>> helper = new HashSet<>();
+            if (elem.size() == 0) {
+                System.out.println("[]");
+                continue;
+            }
+            helper.add(elem);
+            superHelper.remove(elem);
+            for (HashSet<String> superHelperElem : superHelper) {
+                boolean need = true;
+                for (HashSet<String> helperHelper : helper) {
+                    HashSet<String> lol = new HashSet<>(helperHelper);
+                    lol.retainAll(superHelper);
+                    if (lol.size() != 0) {
+                        need = false;
+                        break;
+                    }
+                }
+                if (need) {
+                    helper.add(superHelperElem);
+                }
+            }
+
+
+        }
+
+    }
 
     private void setMatrixBinary() {
         for (int i = 0; i < row; i++) {
